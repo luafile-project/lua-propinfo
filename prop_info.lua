@@ -25,8 +25,42 @@ local function Initialize()
                     print('Model Hash:', model)
                     print('Vec3:', vec3)
                     print('Vec4:', vec4)
-                    print('----------------------------')
+                    print('------------------------------')
                     
+                end
+            end
+        }
+    })
+
+    -- Add vehicle position target
+    exports.ox_target:addGlobalVehicle({
+        {
+            name = 'check_vehicle_info',
+            icon = 'fas fa-car',
+            label = 'Vehicle Info',
+            onSelect = function(data)
+                local vehicle = data.entity
+                if DoesEntityExist(vehicle) then
+                    local coords = GetEntityCoords(vehicle)
+                    local heading = GetEntityHeading(vehicle)
+                    local model = GetEntityModel(vehicle)
+                    local modelName = GetDisplayNameFromVehicleModel(model)
+                    
+                    local vec3 = string.format('vector3(%.3f, %.3f, %.3f)', coords.x, coords.y, coords.z-1.0)
+                    local vec4 = string.format('vector4(%.3f, %.3f, %.3f, %.3f)', coords.x, coords.y, coords.z-1.0, heading)
+                    
+                    print('-------- VEHICLE INFO --------')
+                    print('Model Name:', modelName)
+                    print('Model Hash:', model)
+                    print('Vec3:', vec3)
+                    print('Vec4:', vec4)
+                    print('------------------------------')
+                    
+                    -- Copy to clipboard
+                    SendNUIMessage({
+                        type = 'copyToClipboard',
+                        text = vec3
+                    })
                 end
             end
         }
@@ -47,7 +81,7 @@ local function Initialize()
  
                     print('-------- PED POSITION --------')
                     print('Vec3:', vec3)
-                    print('----------------------------')
+                    print('------------------------------')
                     
                     -- Copy to clipboard
                     SendNUIMessage({
@@ -74,7 +108,7 @@ local function Initialize()
                     
                     print('-------- PED POSITION --------')
                     print('Vec4:', vec4)
-                    print('----------------------------')
+                    print('------------------------------')
                     
                     -- Copy to clipboard
                     SendNUIMessage({
