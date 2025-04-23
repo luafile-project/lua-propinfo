@@ -1,10 +1,11 @@
 # lua-propinfo
 
-A FiveM resource that provides prop information and position copying functionality using ox_target and ox_lib.
+A lightweight FiveM resource for developers that provides quick access to prop information and position coordinates. Features include prop model details, Vector3/Vector4 position copying, and player position tracking, all integrated with ox_target for easy access.
 
 ## Features
 
 - Get detailed information about props/objects
+- Get vehicle information and coordinates
 - Copy Vector3 and Vector4 coordinates to clipboard
 - Get player position in Vector3 and Vector4 format
 - Clean and intuitive UI notifications
@@ -37,6 +38,15 @@ ensure lua-propinfo
   - Vector3 coordinates
   - Vector4 coordinates (including heading)
 
+### Vehicle Information
+- Target any vehicle in the game
+- Select "Vehicle Info" from the context menu
+- View vehicle information including:
+  - Vehicle Model Name
+  - Vehicle Model Hash
+  - Vector3 coordinates
+  - Vector4 coordinates (including heading)
+
 ### Player Position
 - Use the target menu on yourself
 - Choose between:
@@ -52,4 +62,4 @@ The resource is ready to use out of the box. No additional configuration is requ
 - Vector3/Vector4 coordinates are automatically adjusted (z-1.0) for better placement
 - All coordinates are formatted with 3 decimal places for precision
 - Notifications will appear when coordinates are copied to clipboard
-
+- Vehicle information includes the proper display name of the vehicle model
